@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo de tu coche</title>
+
+    <script>
+        function  check()
+        {
+            const edKm = document.getElementById( "edKm");
+            const edTime = document.getElementById( "edTime");
+            const edCons = document.getElementById( "edCons");
+
+            var toret=true;
+
+            if((edKm.value.trim().length === 0) || (edTime.value.trim().length === 0) || (edCons.value.trim().length === 0)){
+                toret = false;
+            }else if(!parseInt(edKm.value.trim()) || !parseInt(edTime.value.trim()) || !parseInt(edCons.value.trim()) ){
+                toret = false;
+        }
+            return toret;
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Consumo de tu coche</h1>
+
+    <form id="frmCar"
+          action="/consumo"
+          method="post"
+          onsubmit="return check()">
+        <label for="edKm">Kilometros: </label>
+        <input type="text" id="edKm" name="edKm">
+        <label for="edTime">Tiempo (en horas): </label>
+        <input type="text" id="edTime" name="edTime">
+        <label for="edCons">Consumo (l/100 km): </label>
+        <input type="text" id="edCons" name="edCons">
+        <input type="submit" value="consumo" />
+    </form>
+</body>
+</html>
